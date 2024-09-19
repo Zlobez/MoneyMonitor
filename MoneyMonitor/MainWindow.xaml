@@ -6,12 +6,16 @@
         xmlns:local="clr-namespace:MoneyMonitor"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid Margin="0,170,0,0"/>
-        <DataGrid x:Name="FinanceGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=Finance}" Margin="0,165,0,33">
+        Title="MainWindow" Height="450" Width="820">
+    <Grid Background="#FFB4B4B4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="29*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="0,170,0,0" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="FinanceGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=FinanceRu}" Margin="0,165,0,33" Grid.ColumnSpan="2">
             <DataGrid.Resources>
-                <col:ArrayList x:Key="Finance">
+                <col:ArrayList x:Key="FinanceRu">
 
                 </col:ArrayList>
             </DataGrid.Resources>
@@ -25,14 +29,29 @@
 
         </DataGrid>
 
+        <ComboBox x:Name="boxcategory" SelectionChanged="categoryComboBox_SelectionChanged" HorizontalAlignment="Left" Margin="160,124,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <ComboBox x:Name="boxsubcategory" SelectionChanged="subcategoryComboBox_SelectionChanged" HorizontalAlignment="Left" Margin="285,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Find" Content="Найти" Click="ButtonFind_Click" HorizontalAlignment="Left" Margin="730,58,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
+        <Button x:Name="Add" Content="Добавить" Click="ButtonAdd_Click" HorizontalAlignment="Left" Margin="730,125,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="-2.07,0.711" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="datePicker3" SelectedDateChanged="calendar_adddadeChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="7,123,0,0" VerticalAlignment="Top" Width="148"/>
+        <Label Content="Добавление новой статьи расхода"   HorizontalAlignment="Left" Margin="7,98,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="TextBox_Money" TextChanged="textBox_KeyPress" HorizontalAlignment="Left"  Margin="410,124,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="22" RenderTransformOrigin="0.503,0.0"/>
+        <TextBox x:Name="TextBox_Comment" TextChanged="TextBoxComment_TextChanged" HorizontalAlignment="Left"  Margin="535,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="22" RenderTransformOrigin="0.503,0.0"/>
 
-        <ComboBox HorizontalAlignment="Left" Margin="123,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="248,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Find" Content="Найти" Click="ButtonFind_Click" HorizontalAlignment="Left" Margin="373,10,0,0" VerticalAlignment="Top" Width="60"/>
-        <Button x:Name="Update" Content="Обновить" Click="ButtonUpdate_Click" HorizontalAlignment="Left" Margin="730,145,0,0" VerticalAlignment="Top" Width="60"/>
-        <Button x:Name="Add" Content="Добавить" Click="ButtonAdd_Click" HorizontalAlignment="Left" Margin="438,10,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="-2.07,0.711"/>
-        <DatePicker Name="datePicker1" SelectedDateChanged="calendar_dadebChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="datePicker2" SelectedDateChanged="calendar_dadeeChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
+
+        <DatePicker Name="datePicker1" SelectedDateChanged="calendar_dadebChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="7,55,0,0" VerticalAlignment="Top" Width="148"/>
+        <DatePicker Name="datePicker2" SelectedDateChanged="calendar_dadeeChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="160,55,0,0" VerticalAlignment="Top" Width="148"/>
+        <Label Content="Отображение данных"   HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top" />
+        <Label Content="С:"   HorizontalAlignment="Left" Margin="7,31,0,0" VerticalAlignment="Top" />
+        <Label Content="По:"   HorizontalAlignment="Left" Margin="160,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.323,0.325" />
+        <Label Content="Категория:"   HorizontalAlignment="Left" Margin="314,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.323,0.325" />
+        <ComboBox x:Name="boxcategoryfilter" SelectionChanged="boxcategoryfilter_SelectionChanged" HorizontalAlignment="Left" Margin="314,56,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <ComboBox x:Name="boxsubcategoryfilter" SelectionChanged="boxsubcategoryfilter_SelectionChanged" HorizontalAlignment="Left" Margin="445,56,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Moneyfilter" HorizontalAlignment="Left" TextChanged="Moneyfilter_TextChanged" Margin="570,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="22" RenderTransformOrigin="0.503,0.0"/>
+        <Label Content="Сумма:"   HorizontalAlignment="Left" Margin="570,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.323,0.325" />
+
+
+
 
 
     </Grid>
