@@ -1,0 +1,39 @@
+﻿<Window x:Class="MoneyMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoneyMonitor"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="0,170,0,0"/>
+        <DataGrid x:Name="FinanceGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=Finance}" Margin="0,165,0,33">
+            <DataGrid.Resources>
+                <col:ArrayList x:Key="Finance">
+
+                </col:ArrayList>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Path=date}" Width="100" />
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Path=Money}" Width="130" />
+                <DataGridTextColumn Header="Категория" Binding="{Binding Path=category}" Width="130" />
+                <DataGridTextColumn Header="Подкатегория" Binding="{Binding Path=subcategory}" Width="130" />
+                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path=comment}" Width="300" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+        <ComboBox HorizontalAlignment="Left" Margin="123,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="248,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Find" Content="Найти" Click="ButtonFind_Click" HorizontalAlignment="Left" Margin="373,10,0,0" VerticalAlignment="Top" Width="60"/>
+        <Button x:Name="Update" Content="Обновить" Click="ButtonUpdate_Click" HorizontalAlignment="Left" Margin="730,145,0,0" VerticalAlignment="Top" Width="60"/>
+        <Button x:Name="Add" Content="Добавить" Click="ButtonAdd_Click" HorizontalAlignment="Left" Margin="438,10,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="-2.07,0.711"/>
+        <DatePicker Name="datePicker1" SelectedDateChanged="calendar_dadebChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="datePicker2" SelectedDateChanged="calendar_dadeeChanged" SelectedDateFormat="Long" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
